@@ -9,13 +9,45 @@
  */
 
 export function minBy(array, cb) {
-  // Your code goes here...
+  if (array.length === 0) {
+    return undefined;
+  }
 
+  let minValue = cb(array[0]);
+  let minElement = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    const currentElement = array[i];
+    const currentValue = cb(currentElement);
+
+    if (currentValue < minValue) {
+      minValue = currentValue;
+      minElement = currentElement;
+    }
+  }
+
+  return minElement;
 }
 
 export function maxBy(array, cb) {
-  // Your code goes here...
+  if (array.length === 0) {
+    return undefined;
+  }
 
+  let maxValue = cb(array[0]);
+  let maxElement = array[0];
+
+  for (let i = 1; i < array.length; i++) {
+    const currentElement = array[i];
+    const currentValue = cb(currentElement);
+
+    if (currentValue > maxValue) {
+      maxValue = currentValue;
+      maxElement = currentElement;
+    }
+  }
+
+  return maxElement;
 }
 
 

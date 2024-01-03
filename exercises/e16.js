@@ -12,6 +12,12 @@
 export function find(array, callback) {
   // Your code goes here...
   
+  for (let i = 0; i < array.length; i++) {
+    const currentItem = array[i];
+    if (callback(currentItem)) {
+      return currentItem;
+    }
+  }
 }
 
 

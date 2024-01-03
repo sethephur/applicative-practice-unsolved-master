@@ -6,6 +6,19 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
+
+  return data.planets
+    .filter((planet) => {
+      if (planet.moons === undefined) {
+        return 0;
+      }
+      else
+        return planet.moons.length > 0;
+    })
+    .map((planet) => planet.moons.length)
+    .reduce((acc, cv) => {
+      return acc + cv;
+    }, 0);
 }
 
 
